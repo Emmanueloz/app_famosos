@@ -1,5 +1,5 @@
 class FamosoModelo {
-  String id;
+  String? id;
   String nombre;
   int edad;
   String origen;
@@ -9,7 +9,7 @@ class FamosoModelo {
   String pareja;
 
   FamosoModelo({
-    required this.id,
+    this.id,
     required this.nombre,
     required this.edad,
     required this.origen,
