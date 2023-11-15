@@ -19,7 +19,7 @@ class MyApp extends StatelessWidget {
         GetPage(name: '/famosos', page: () => const FamososPage()),
         GetPage(name: '/formFamoso', page: () => const FormFamososPage()),
         GetPage(name: '/peliculas', page: () => const PeliculasPage()),
-        GetPage(name: '/formPeliculas', page: () => FormPeliculasPage()),
+        GetPage(name: '/formPeliculas', page: () => const FormPeliculasPage()),
       ],
     );
   }

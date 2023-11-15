@@ -1,4 +1,3 @@
-import 'package:app_famosos/src/widgets/bottom_navigation.dart';
 import 'package:flutter/material.dart';
 
 class FormPeliculasPage extends StatelessWidget {

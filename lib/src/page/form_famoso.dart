@@ -1,6 +1,4 @@
-import 'package:app_famosos/src/widgets/bottom_navigation.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 
 class FormFamososPage extends StatelessWidget {
   const FormFamososPage({super.key});

@@ -1,5 +1,4 @@
 import 'package:app_famosos/src/page/form_famoso.dart';
-import 'package:app_famosos/src/widgets/bottom_navigation.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
