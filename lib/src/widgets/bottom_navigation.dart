@@ -3,7 +3,7 @@ import 'package:get/get.dart';
 
 class BottomNav extends StatelessWidget {
   final PageController pageController;
-  final RxInt currentIndex = 1.obs;
+  final RxInt currentIndex = 0.obs;
 
   BottomNav({super.key, required this.pageController});
 

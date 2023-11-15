@@ -9,8 +9,50 @@ class FormFamososPage extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Agregar Famoso'),
       ),
-      body: const Center(
-        child: Text('Formulario Famosos'),
+      body: SingleChildScrollView(
+        child: Container(
+          padding: const EdgeInsets.all(10),
+          child: const Column(children: <Widget>[
+            TextField(
+              keyboardType: TextInputType.name,
+              decoration: InputDecoration(
+                labelText: "Nombre",
+              ),
+            ),
+            TextField(
+              keyboardType: TextInputType.number,
+              decoration: InputDecoration(
+                labelText: "Edad",
+              ),
+            ),
+            TextField(
+              decoration: InputDecoration(
+                labelText: "Lugar de origen",
+              ),
+            ),
+            TextField(
+              keyboardType: TextInputType.datetime,
+              decoration: InputDecoration(
+                labelText: "Fecha de nacimiento",
+              ),
+            ),
+            TextField(
+              decoration: InputDecoration(
+                labelText: "Tipo de famoso",
+              ),
+            ),
+            TextField(
+              decoration: InputDecoration(
+                labelText: "Genero",
+              ),
+            ),
+            TextField(
+              decoration: InputDecoration(
+                labelText: "Pareja",
+              ),
+            )
+          ]),
+        ),
       ),
     );
   }
