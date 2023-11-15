@@ -1,4 +1,4 @@
-import 'package:app_famosos/src/widgets/bottom_navigation.dart';
+import 'package:app_famosos/src/page/form_pelicula.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -7,20 +7,17 @@ class PeliculasPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Películas',
-      home: Scaffold(
-          appBar: AppBar(
-            title: const Text('Películas'),
-          ),
-          body: const Center(
-            child: Text('Películas'),
-          ),
-          floatingActionButton: FloatingActionButton(
-            onPressed: () => Get.offNamed("agregarPeliculas"),
-            child: const Icon(Icons.add),
-          ),
-          bottomNavigationBar: const BottomNav()),
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Películas'),
+      ),
+      body: const Center(
+        child: Text('Películas'),
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () => Get.to(const FormPeliculasPage()),
+        child: const Icon(Icons.add),
+      ),
     );
   }
 }
