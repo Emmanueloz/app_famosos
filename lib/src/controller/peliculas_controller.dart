@@ -1,3 +1,3 @@
 import 'package:get/get.dart';
 
-class PeliculasController extends GetxController {}
+class PeliculaController extends GetxController {}
