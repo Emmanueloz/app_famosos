@@ -16,7 +16,7 @@ class BottomNav extends StatelessWidget {
         ),
         BottomNavigationBarItem(
           icon: Icon(Icons.movie),
-          label: "Premios",
+          label: "Películas",
         ),
       ],
       onTap: (value) {
