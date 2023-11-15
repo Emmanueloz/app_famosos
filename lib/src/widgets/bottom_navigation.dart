@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-const _kPages = <String>["home", "premios"];
+const _kPages = <String>["home", "peliculas"];
 
 class BottomNav extends StatelessWidget {
   const BottomNav({super.key});

@@ -1,7 +1,7 @@
-import 'package:app_famosos/page/form_famoso.dart';
-import 'package:app_famosos/page/famosos_page.dart';
-import 'package:app_famosos/page/form_pelicula.dart';
-import 'package:app_famosos/page/peliculas_page.dart';
+import 'package:app_famosos/src/page/famosos_page.dart';
+import 'package:app_famosos/src/page/form_famoso.dart';
+import 'package:app_famosos/src/page/form_pelicula.dart';
+import 'package:app_famosos/src/page/peliculas_page.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -20,8 +20,8 @@ class MyApp extends StatelessWidget {
       getPages: [
         GetPage(name: "/home", page: () => const FamososPage()),
         GetPage(name: "/agregarFamoso", page: () => const FormFamososPage()),
-        GetPage(name: "/premios", page: () => const MoviePage()),
-        GetPage(name: "/agregarPremios", page: () => const FormMoviePage()),
+        GetPage(name: "/peliculas", page: () => const PeliculasPage()),
+        GetPage(name: "/agregarPeliculas", page: () => const FormMoviePage()),
       ],
     );
   }
