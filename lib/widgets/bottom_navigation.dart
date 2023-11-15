@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 const _kPages = <String>["home", "premios"];
 
@@ -11,15 +12,16 @@ class BottomNav extends StatelessWidget {
       items: const [
         BottomNavigationBarItem(
           icon: Icon(Icons.home),
-          label: "Home",
+          label: "Famosos",
         ),
         BottomNavigationBarItem(
-          icon: Icon(Icons.percent),
+          icon: Icon(Icons.movie),
           label: "Premios",
         ),
       ],
       onTap: (value) {
         print(_kPages[value]);
+        Get.offNamed(_kPages[value]);
       },
     );
   }
