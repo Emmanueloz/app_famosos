@@ -1,3 +1,4 @@
+import 'package:app_famosos/src/widgets/form_input.dart';
 import 'package:flutter/material.dart';
 
 class FormFamososPage extends StatelessWidget {
@@ -13,26 +14,24 @@ class FormFamososPage extends StatelessWidget {
         padding: const EdgeInsets.all(10),
         child: Column(
           children: <Widget>[
-            _buildTextField("Nombre", TextInputType.name),
-            _buildTextField("Edad", TextInputType.number),
-            _buildTextField("Lugar de origen", TextInputType.text),
-            _buildTextField("Fecha de nacimiento", TextInputType.datetime),
-            _buildTextField("Tipo de famoso", TextInputType.text),
+            const FormInput(
+                labelText: "Nombre", keyboardType: TextInputType.name),
+            const FormInput(
+                labelText: "Edad", keyboardType: TextInputType.number),
+            const FormInput(
+                labelText: "Lugar de origen", keyboardType: TextInputType.text),
+            const FormInput(
+                labelText: "Fecha de nacimiento",
+                keyboardType: TextInputType.datetime),
+            const FormInput(
+                labelText: "Tipo de famoso", keyboardType: TextInputType.text),
             _buildGenderRadioButtons(),
-            _buildTextField("Pareja", null),
+            const FormInput(labelText: "Pareja", keyboardType: null),
+            ElevatedButton.icon(
+                onPressed: null,
+                icon: const Icon(Icons.save),
+                label: const Text("Aceptar"))
           ],
-        ),
-      ),
-    );
-  }
-
-  Widget _buildTextField(String labelText, TextInputType? keyboardType) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 8.0),
-      child: TextField(
-        keyboardType: keyboardType,
-        decoration: InputDecoration(
-          labelText: labelText,
         ),
       ),
     );
