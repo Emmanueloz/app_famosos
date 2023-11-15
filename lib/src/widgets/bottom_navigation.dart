@@ -5,8 +5,12 @@ class BottomNav extends StatelessWidget {
   final PageController pageController;
   final RxInt currentIndex = 0.obs;
 
-  BottomNav({super.key, required this.pageController});
-
+  // BottomNav({super.key, required this.pageController});
+  BottomNav({super.key, required this.pageController}) {
+    pageController.addListener(() {
+      currentIndex.value = pageController.page?.round() ?? 0;
+    });
+  }
   void onTap(int index) {
     currentIndex.value = index;
     pageController.animateToPage(
