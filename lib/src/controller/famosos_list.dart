@@ -3,21 +3,19 @@ import 'package:app_famosos/src/services/famosos_service.dart';
 import 'package:get/get.dart';
 
 class FamososListController extends GetxController {
-  var listFamosos = <FamosoModelo>[].obs;
+  var listaFamosos = <FamosoModelo>[].obs;
   FamososService service = FamososService();
 
-  
- 
-@override
+  @override
   void onInit() {
     super.onInit();
     var list = service.loadFamoso();
-    list.then((value) => listFamosos.value = value);
+    list.then((value) => listaFamosos.value = value);
   }
 
   @override
-  void refresh(){
+  void refresh() {
     var list = service.loadFamoso();
-    list.then((value) => listFamosos.value = value);
+    list.then((value) => listaFamosos.value = value);
   }
 }

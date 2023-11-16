@@ -12,10 +12,10 @@ class ItemFamoso extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final FamososListController ctrFamosos = Get.find();
+    final FamososListController ctrFamoso = Get.find();
     return Card(
       child: ListTile (
-
+        title: Text(famoso.nombre),
       ),
     );
   }
