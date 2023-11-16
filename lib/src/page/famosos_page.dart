@@ -7,7 +7,7 @@ import 'package:get/get.dart';
 class FamososPage extends StatelessWidget {
   FamososPage({super.key});
 
-  final FamososListController ctr = Get.find();
+  final FamososListController ctr = Get.put(FamososListController());
 
   @override
   Widget build(BuildContext context) {
@@ -17,8 +17,9 @@ class FamososPage extends StatelessWidget {
         ),
         body: Obx(
         () => ListView.builder(
+          padding: const EdgeInsets.all(10),
           scrollDirection: Axis.vertical,   
-          itemCount: ctr.listaFamosos .length,
+          itemCount: ctr.listaFamosos.length,
           itemBuilder: (BuildContext context, int index) {
             var famoso = ctr.listaFamosos[index];
             return ItemFamoso(famoso: famoso);

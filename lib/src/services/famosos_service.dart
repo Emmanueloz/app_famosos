@@ -8,8 +8,7 @@ class FamososService extends ChangeNotifier {
       "bdra3-5b065-default-rtdb.firebaseio.com"; // famosos.json
   final List<FamosoModelo> famosos = [];
 
-  Future<List<FamosoModelo>> loadFamoso() async {
-    final List<FamosoModelo> famosos= [];
+  Future<List<FamosoModelo>> loadFamosos() async {
     final url = Uri.https(_baseUrl, 'famosos.json');
     print(url);
     final resp = await http.get(url);

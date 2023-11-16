@@ -8,4 +8,5 @@ class FamosoController extends GetxController {
   final RxString tipoFamoso = "".obs;
   final RxString genero = "".obs;
   final RxString pareja = "".obs;
+  
 }
