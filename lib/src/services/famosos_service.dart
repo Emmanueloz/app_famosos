@@ -1,3 +1,4 @@
+import 'package:app_famosos/src/models/famoso_modelo.dart';
 import 'package:app_famosos/src/controller/famoso_controller.dart';
 import 'package:app_famosos/src/models/famoso_modelo.dart';
 import 'package:flutter/material.dart';
