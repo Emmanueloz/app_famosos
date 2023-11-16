@@ -18,9 +18,9 @@ class FamososPage extends StatelessWidget {
         body: Obx(
           () => ListView.builder(
             scrollDirection: Axis.vertical,
-            itemCount: ctr.listaFamosos.length,
+            itemCount: ctr.listFamosos.length,
             itemBuilder: (BuildContext context, int index) {
-              var famosos = ctr.listaFamosos[index];
+              var famosos = ctr.listFamosos[index];
               return ItemFamosos(famosos: famosos);
             },
           ),
