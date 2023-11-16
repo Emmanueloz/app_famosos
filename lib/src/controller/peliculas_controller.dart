@@ -1,6 +1,6 @@
 import 'package:app_famosos/src/models/pelicula_modelo.dart';
 import 'package:app_famosos/src/services/peliculas_service.dart';
-import 'package:flutter/widgets.dart';
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class PeliculaController extends GetxController {
@@ -103,7 +103,7 @@ class PeliculaController extends GetxController {
   void validarAo(String val) {
     errorAo.value = null;
     submitFunc.value = null;
-    if (val.length > 4 && int.tryParse(val) is int && int.parse(val) >= 1000) {
+    if (val.length >= 4 && int.tryParse(val) is int && int.parse(val) >= 1000) {
       submitFunc.value = submitFunction();
       errorAo.value = null;
       fAo = true;

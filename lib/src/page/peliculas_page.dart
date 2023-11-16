@@ -15,7 +15,7 @@ class PeliculasPage extends StatelessWidget {
         child: Text('Películas'),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () => Get.to(const FormPeliculasPage()),
+        onPressed: () => Get.to(() => const FormPeliculasPage()),
         child: const Icon(Icons.add),
       ),
     );
