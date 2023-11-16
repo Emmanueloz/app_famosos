@@ -13,16 +13,15 @@ class FamososPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: const Text('Lista de Famosos'),
+          title: const Text('Famosos'),
         ),
         body: Obx(
         () => ListView.builder(
-          padding: const EdgeInsets.all(10),
-          scrollDirection: Axis.vertical,   
+          scrollDirection: Axis.vertical,
           itemCount: ctr.listaFamosos.length,
           itemBuilder: (BuildContext context, int index) {
-            var famoso = ctr.listaFamosos[index];
-            return ItemFamoso(famoso: famoso);
+            var famosos = ctr.listaFamosos[index];
+            return ItemFamosos(famosos: famosos);
           },
         ),
       ),

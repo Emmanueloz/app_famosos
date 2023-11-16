@@ -1,5 +1,5 @@
 class FamosoModelo {
-  String id;
+  String? id;
   String nombre;
   int edad;
   String origen;

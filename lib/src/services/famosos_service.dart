@@ -6,9 +6,9 @@ import 'dart:convert';
 class FamososService extends ChangeNotifier {
   final String _baseUrl =
       "bdra3-5b065-default-rtdb.firebaseio.com"; // famosos.json
-  final List<FamosoModelo> famosos = [];
 
-  Future<List<FamosoModelo>> loadFamosos() async {
+  Future<List<FamosoModelo>> loadFamoso() async {
+    final List<FamosoModelo> famososList = [];
     final url = Uri.https(_baseUrl, 'famosos.json');
     print(url);
     final resp = await http.get(url);
@@ -16,13 +16,12 @@ class FamososService extends ChangeNotifier {
     final Map<String, dynamic> famososMap = json.decode(resp.body);
 
     famososMap.forEach((key, value) {
-      final tempFamosos = FamosoModelo.fromJson(value);
-      tempFamosos.id = key;
-      famosos.add(tempFamosos);
+      final tempFamoso = FamosoModelo.fromJson(value);
+      tempFamoso.id = key;
+      famososList.add(tempFamoso);
     });
-    return famosos;
+    return famososList;
   }
 }
-
 
   
