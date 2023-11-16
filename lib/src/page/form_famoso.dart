@@ -23,6 +23,7 @@ class FormFamososPage extends StatelessWidget {
                 keyboardType: TextInputType.name,
                 onChanged: fx.nombreChanged,
                 controller: fx.ctrNombre.value,
+                errorText: fx.errorNombre.value,
               );
             }),
             Obx(() {
@@ -31,6 +32,7 @@ class FormFamososPage extends StatelessWidget {
                 keyboardType: TextInputType.number,
                 onChanged: fx.edadChanged,
                 controller: fx.ctrEdad.value,
+                errorText: fx.errorEdad.value,
               );
             }),
             Obx(() {
@@ -68,10 +70,12 @@ class FormFamososPage extends StatelessWidget {
                 controller: fx.ctrPareja.value,
               );
             }),
-            ElevatedButton.icon(
-                onPressed: null,
-                icon: const Icon(Icons.save),
-                label: const Text("Aceptar"))
+            Obx(() {
+              return ElevatedButton.icon(
+                  onPressed: fx.submitFunc.value,
+                  icon: const Icon(Icons.save),
+                  label: const Text("Aceptar"));
+            })
           ],
         ),
       ),

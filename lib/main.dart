@@ -1,3 +1,4 @@
+import 'package:app_famosos/src/controller/famosos_list.dart';
 import 'package:app_famosos/src/page/famosos_page.dart';
 import 'package:app_famosos/src/page/form_famoso.dart';
 import 'package:app_famosos/src/page/form_pelicula.dart';
@@ -13,10 +14,11 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Get.put(FamososListController());
     return GetMaterialApp(
       home: HomeScreen(),
       getPages: [
-        GetPage(name: '/famosos', page: () => const FamososPage()),
+        GetPage(name: '/famosos', page: () => FamososPage()),
         GetPage(name: '/formFamoso', page: () => const FormFamososPage()),
         GetPage(name: '/peliculas', page: () => const PeliculasPage()),
         GetPage(name: '/formPeliculas', page: () => const FormPeliculasPage()),
@@ -35,9 +37,9 @@ class HomeScreen extends StatelessWidget {
     return Scaffold(
       body: PageView(
         controller: _pageController,
-        children: const [
+        children: [
           FamososPage(),
-          PeliculasPage(),
+          const PeliculasPage(),
         ],
       ),
       bottomNavigationBar: BottomNav(pageController: _pageController),

@@ -1,3 +1,4 @@
+import 'package:app_famosos/src/controller/famosos_list.dart';
 import 'package:app_famosos/src/models/famoso_modelo.dart';
 import 'package:app_famosos/src/services/famosos_service.dart';
 import 'package:flutter/material.dart';
@@ -32,6 +33,7 @@ class FamosoController extends GetxController {
   Rxn<Function()> submitFunc = Rxn<Function()>(null);
   // instancia del servicio
   FamososService? service;
+  FamososListController ctrList = Get.find();
   // controladores de los inputs
   var ctrNombre = TextEditingController().obs;
   var ctrEdad = TextEditingController().obs;
@@ -40,6 +42,17 @@ class FamosoController extends GetxController {
   var ctrTipo = TextEditingController().obs;
   var ctrGenero = TextEditingController().obs;
   var ctrPareja = TextEditingController().obs;
+
+  @override
+  void onInit() {
+    super.onInit();
+    service = FamososService();
+
+    debounce<String>(famosoNombre, validarNombre,
+        time: const Duration(microseconds: 500));
+    debounce<String>(famosoEdad, validarEdad,
+        time: const Duration(microseconds: 500));
+  }
 
   // changed
   void nombreChanged(String val) {
@@ -87,7 +100,7 @@ class FamosoController extends GetxController {
   void validarEdad(String val) {
     errorEdad.value = null;
     submitFunc.value = null;
-    if (int.parse(val) >= 0) {
+    if (int.tryParse(val) is int && int.parse(val) >= 0) {
       submitFunc.value = submitFunction();
       errorEdad.value = null;
       fEdad = true;
@@ -105,7 +118,7 @@ class FamosoController extends GetxController {
         validarEdad(famosoEdad.value);
         return true;
       } else {
-        String? mensaje = 'Se agrego un nuevo producto';
+        String? mensaje = 'Se agrego un nuevo famoso';
         if (_id == '') {
           FamosoModelo famoso = FamosoModelo(
               nombre: famosoNombre.value,
@@ -115,7 +128,7 @@ class FamosoController extends GetxController {
               tipo: famosoTipo.value,
               genero: famosoGenero.value,
               pareja: famosoPareja.value);
-          //_id = await ctrLst.agregar(famoso);
+          _id = await ctrList.agregar(famoso);
         } else {
           /// TODO: código para actualizar
         }
