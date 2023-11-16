@@ -1,5 +1,5 @@
 class PeliculaModelo {
-  String id;
+  String? id;
   String nombre;
   String genero;
   int ao;
@@ -7,7 +7,7 @@ class PeliculaModelo {
   String director;
 
   PeliculaModelo({
-    required this.id,
+    this.id,
     required this.nombre,
     required this.genero,
     required this.ao,

@@ -33,6 +33,7 @@ class FamosoController extends GetxController {
   Rxn<Function()> submitFunc = Rxn<Function()>(null);
   // instancia del servicio
   FamososService? service;
+  // instancia del controlador de la lista
   FamososListController ctrList = Get.find();
   // controladores de los inputs
   var ctrNombre = TextEditingController().obs;
@@ -205,6 +206,11 @@ class FamosoController extends GetxController {
         }
         if (_id!.isNotEmpty) {
           ctrNombre.value.text = "";
+          ctrEdad.value.text = "";
+          ctrOrigen.value.text = "";
+          ctrNacimiento.value.text = "";
+          ctrTipo.value.text = "";
+          ctrPareja.value.text = "";
           Get.snackbar('Producto', mensaje);
         }
         return true;
