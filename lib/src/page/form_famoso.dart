@@ -41,6 +41,7 @@ class FormFamososPage extends StatelessWidget {
                 keyboardType: TextInputType.text,
                 onChanged: fx.origenChanged,
                 controller: fx.ctrOrigen.value,
+                errorText: fx.errorOrigen.value,
               );
             }),
             Obx(() {
@@ -49,6 +50,7 @@ class FormFamososPage extends StatelessWidget {
                 keyboardType: TextInputType.datetime,
                 onChanged: fx.fNacimientoChanged,
                 controller: fx.ctrNacimiento.value,
+                errorText: fx.errorNacimiento.value,
               );
             }),
             Obx(() {
@@ -57,6 +59,7 @@ class FormFamososPage extends StatelessWidget {
                 keyboardType: TextInputType.text,
                 onChanged: fx.tipoChanged,
                 controller: fx.ctrTipo.value,
+                errorText: fx.errorTipo.value,
               );
             }),
             Obx(() {
@@ -68,6 +71,7 @@ class FormFamososPage extends StatelessWidget {
                 keyboardType: TextInputType.text,
                 onChanged: fx.parejaChanged,
                 controller: fx.ctrPareja.value,
+                errorText: fx.errorPareja.value,
               );
             }),
             Obx(() {

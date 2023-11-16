@@ -10,7 +10,7 @@ class FamosoController extends GetxController {
   var famosoNombre = ''.obs;
   var famosoEdad = "".obs;
   var famosoOrigen = "".obs;
-  var feNacimientoFamoso = "".obs;
+  var faNacimiento = "".obs;
   var famosoTipo = "".obs;
   var famosoGenero = "".obs;
   var famosoPareja = "".obs;
@@ -52,6 +52,16 @@ class FamosoController extends GetxController {
         time: const Duration(microseconds: 500));
     debounce<String>(famosoEdad, validarEdad,
         time: const Duration(microseconds: 500));
+    debounce<String>(famosoEdad, validarEdad,
+        time: const Duration(microseconds: 500));
+    debounce<String>(famosoOrigen, validarOrigen,
+        time: const Duration(microseconds: 500));
+    debounce<String>(faNacimiento, validarFaNacimiento,
+        time: const Duration(microseconds: 500));
+    debounce<String>(famosoTipo, validarTipo,
+        time: const Duration(microseconds: 500));
+    debounce<String>(famosoPareja, validarPareja,
+        time: const Duration(microseconds: 500));
   }
 
   // changed
@@ -68,7 +78,7 @@ class FamosoController extends GetxController {
   }
 
   void fNacimientoChanged(String val) {
-    feNacimientoFamoso.value = val;
+    faNacimiento.value = val;
   }
 
   void tipoChanged(String val) {
@@ -110,12 +120,73 @@ class FamosoController extends GetxController {
     }
   }
 
+  void validarOrigen(String val) {
+    errorOrigen.value = null;
+    submitFunc.value = null;
+    if (val.length > 3) {
+      errorOrigen.value = null;
+      submitFunc.value = submitFunction();
+      fOrigen = true;
+    } else {
+      errorOrigen.value = "El lugar de origen debe ser mayor a 3 letras";
+      fOrigen = false;
+    }
+  }
+
+  void validarFaNacimiento(String val) {
+    errorNacimiento.value = null;
+    submitFunc.value = null;
+    if (val.length > 3) {
+      errorNacimiento.value = null;
+      submitFunc.value = submitFunction();
+      fNacimiento = true;
+    } else {
+      errorNacimiento.value = "La fecha de nacimiento no es valida";
+      fNacimiento = false;
+    }
+  }
+
+  void validarTipo(String val) {
+    errorTipo.value = null;
+    submitFunc.value = null;
+    if (val.length > 3) {
+      errorTipo.value = null;
+      submitFunc.value = submitFunction();
+      fTipo = true;
+    } else {
+      errorTipo.value = "El tipo de debe ser mayor a 3 letras";
+      fTipo = false;
+    }
+  }
+
+  void validarPareja(String val) {
+    errorPareja.value = null;
+    submitFunc.value = null;
+    if (val.length > 3) {
+      errorPareja.value = null;
+      submitFunc.value = submitFunction();
+      fPareja = true;
+    } else {
+      errorPareja.value = "El nombre de la pareja debe ser mayor a tres letras";
+      fPareja = false;
+    }
+  }
+
   Future<bool> Function() submitFunction() {
     return () async {
-      if (!fNombre || !fEdad) {
+      if (!fNombre ||
+          !fEdad ||
+          !fOrigen ||
+          !fNacimiento ||
+          !fTipo ||
+          !fPareja) {
         submitFunc.value = null;
         validarNombre(famosoNombre.value);
         validarEdad(famosoEdad.value);
+        validarOrigen(famosoOrigen.value);
+        validarFaNacimiento(faNacimiento.value);
+        validarTipo(famosoTipo.value);
+        validarPareja(famosoPareja.value);
         return true;
       } else {
         String? mensaje = 'Se agrego un nuevo famoso';
@@ -124,7 +195,7 @@ class FamosoController extends GetxController {
               nombre: famosoNombre.value,
               edad: int.parse(famosoEdad.value),
               origen: famosoOrigen.value,
-              fechaNacimiento: feNacimientoFamoso.value,
+              fechaNacimiento: faNacimiento.value,
               tipo: famosoTipo.value,
               genero: famosoGenero.value,
               pareja: famosoPareja.value);
