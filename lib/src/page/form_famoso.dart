@@ -1,11 +1,14 @@
+import 'package:app_famosos/src/controller/famoso_controller.dart';
 import 'package:app_famosos/src/widgets/form_input.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class FormFamososPage extends StatelessWidget {
   const FormFamososPage({super.key});
 
   @override
   Widget build(BuildContext context) {
+    var fx = Get.put(FamosoController());
     return Scaffold(
       appBar: AppBar(
         title: const Text('Agregar Famoso'),
@@ -13,20 +16,58 @@ class FormFamososPage extends StatelessWidget {
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(10),
         child: Column(
-          children: <Widget>[
-            const FormInput(
-                labelText: "Nombre", keyboardType: TextInputType.name),
-            const FormInput(
-                labelText: "Edad", keyboardType: TextInputType.number),
-            const FormInput(
-                labelText: "Lugar de origen", keyboardType: TextInputType.text),
-            const FormInput(
+          children: [
+            Obx(() {
+              return FormInput(
+                labelText: "Nombre",
+                keyboardType: TextInputType.name,
+                onChanged: fx.nombreChanged,
+                controller: fx.ctrNombre.value,
+              );
+            }),
+            Obx(() {
+              return FormInput(
+                labelText: "Edad",
+                keyboardType: TextInputType.number,
+                onChanged: fx.edadChanged,
+                controller: fx.ctrEdad.value,
+              );
+            }),
+            Obx(() {
+              return FormInput(
+                labelText: "Lugar de origen",
+                keyboardType: TextInputType.text,
+                onChanged: fx.origenChanged,
+                controller: fx.ctrOrigen.value,
+              );
+            }),
+            Obx(() {
+              return FormInput(
                 labelText: "Fecha de nacimiento",
-                keyboardType: TextInputType.datetime),
-            const FormInput(
-                labelText: "Tipo de famoso", keyboardType: TextInputType.text),
-            _buildGenderRadioButtons(),
-            const FormInput(labelText: "Pareja", keyboardType: null),
+                keyboardType: TextInputType.datetime,
+                onChanged: fx.fNacimientoChanged,
+                controller: fx.ctrNacimiento.value,
+              );
+            }),
+            Obx(() {
+              return FormInput(
+                labelText: "Tipo de famoso",
+                keyboardType: TextInputType.text,
+                onChanged: fx.tipoChanged,
+                controller: fx.ctrTipo.value,
+              );
+            }),
+            Obx(() {
+              return _buildGenderRadioButtons(fx);
+            }),
+            Obx(() {
+              return FormInput(
+                labelText: "Pareja",
+                keyboardType: TextInputType.text,
+                onChanged: fx.parejaChanged,
+                controller: fx.ctrPareja.value,
+              );
+            }),
             ElevatedButton.icon(
                 onPressed: null,
                 icon: const Icon(Icons.save),
@@ -37,7 +78,7 @@ class FormFamososPage extends StatelessWidget {
     );
   }
 
-  Widget _buildGenderRadioButtons() {
+  Widget _buildGenderRadioButtons(FamosoController fx) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
@@ -49,17 +90,17 @@ class FormFamososPage extends StatelessWidget {
           children: <Widget>[
             Radio<String>(
               value: "M",
-              groupValue: "gender",
+              groupValue: fx.famosoGenero.value,
               onChanged: (String? value) {
-                print(value);
+                fx.generoChanged(value!);
               },
             ),
             const Text("Masculino"),
             Radio<String>(
               value: "F",
-              groupValue: "gender",
+              groupValue: fx.famosoGenero.value,
               onChanged: (String? value) {
-                print(value);
+                fx.generoChanged(value!);
               },
             ),
             const Text("Femenino"),

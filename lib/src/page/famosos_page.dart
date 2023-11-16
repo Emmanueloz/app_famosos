@@ -15,7 +15,7 @@ class FamososPage extends StatelessWidget {
           child: Text('Famosos'),
         ),
         floatingActionButton: FloatingActionButton(
-          onPressed: () => Get.to(const FormFamososPage()),
+          onPressed: () => Get.to(() => const FormFamososPage()),
           child: const Icon(Icons.add),
         ));
   }

@@ -37,7 +37,7 @@ class FamosoController extends GetxController {
   var ctrEdad = TextEditingController().obs;
   var ctrOrigen = TextEditingController().obs;
   var ctrNacimiento = TextEditingController().obs;
-  var ctrFamoso = TextEditingController().obs;
+  var ctrTipo = TextEditingController().obs;
   var ctrGenero = TextEditingController().obs;
   var ctrPareja = TextEditingController().obs;
 
