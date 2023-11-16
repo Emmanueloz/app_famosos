@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       home: HomeScreen(),
       getPages: [
-        GetPage(name: '/famosos', page: () => const FamososPage()),
+        GetPage(name: '/famosos', page: () =>  FamososPage()),
         GetPage(name: '/formFamoso', page: () => const FormFamososPage()),
         GetPage(name: '/peliculas', page: () => const PeliculasPage()),
         GetPage(name: '/formPeliculas', page: () => const FormPeliculasPage()),
@@ -35,9 +35,9 @@ class HomeScreen extends StatelessWidget {
     return Scaffold(
       body: PageView(
         controller: _pageController,
-        children: const [
+        children:  [
           FamososPage(),
-          PeliculasPage(),
+          const PeliculasPage(),
         ],
       ),
       bottomNavigationBar: BottomNav(pageController: _pageController),
