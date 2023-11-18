@@ -22,6 +22,11 @@ class FamososService extends ChangeNotifier {
     });
     return famosos;
   }
+  Future<bool> deleteFamoso(FamosoModelo value) async{
+    final url = Uri.https(_baseUrl, 'famosos/${value.id}.json');
+    final resp = await http.delete(url);
+    return resp.statusCode == 200;
+  }
 
   // crear famosos
   Future<String?> createFamoso(FamosoModelo famoso) async {
