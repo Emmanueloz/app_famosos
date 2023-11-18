@@ -12,6 +12,7 @@ class ItemPelicula extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    //Se manda a llamar el controlador de las lista
     final PeliculasListController ctrList = Get.find();
     return Card(
         child: Dismissible(

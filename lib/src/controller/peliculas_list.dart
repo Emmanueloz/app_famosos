@@ -29,5 +29,10 @@ class PeliculasListController extends GetxController {
   }
   void delete(PeliculaModelo value){
     service.deletePeliculas(value);
+        int index =
+      // ignore: invalid_use_of_protected_member
+      listPeliculas.value.indexWhere((element) => element.id == value.id);
+    listPeliculas.removeAt(index);
   }
+
 }

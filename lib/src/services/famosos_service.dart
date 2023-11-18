@@ -8,28 +8,27 @@ class FamososService extends ChangeNotifier {
       "bdra3-5b065-default-rtdb.firebaseio.com"; // famosos.json
   final List<FamosoModelo> famosos = [];
 
-Future<List<FamosoModelo>> loadFamoso() async {
-  final List<FamosoModelo> famosos = [];
-  final url = Uri.https(_baseUrl, 'famosos.json');
-  final resp = await http.get(url);
+  Future<List<FamosoModelo>> loadFamoso() async {
+    final List<FamosoModelo> famosos = [];
+    final url = Uri.https(_baseUrl, 'famosos.json');
+    final resp = await http.get(url);
 
-  if (resp.statusCode == 200) {
-    final responseBody = jsonDecode(resp.body);
+    if (resp.statusCode == 200) {
+      final responseBody = jsonDecode(resp.body);
 
-    if (responseBody != null && responseBody is Map<String, dynamic>) {
-      final Map<String, dynamic> famososMap = json.decode(resp.body);
+      if (responseBody != null && responseBody is Map<String, dynamic>) {
+        final Map<String, dynamic> famososMap = json.decode(resp.body);
 
-    famososMap.forEach((key, value) {
-      final tempFamosos = FamosoModelo.fromJson(value);
-      tempFamosos.id = key;
-      famosos.add(tempFamosos);
-    });
+        famososMap.forEach((key, value) {
+          final tempFamosos = FamosoModelo.fromJson(value);
+          tempFamosos.id = key;
+          famosos.add(tempFamosos);
+        });
+      }
     }
-  } 
 
-  return famosos;
-}
-
+    return famosos;
+  }
 
   Future<bool> deleteFamoso(FamosoModelo value) async {
     final url = Uri.https(_baseUrl, 'famosos/${value.id}.json');
