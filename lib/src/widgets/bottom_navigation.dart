@@ -26,7 +26,7 @@ class BottomNav extends StatelessWidget {
       return BottomNavigationBar(
         items: const [
           BottomNavigationBarItem(
-            icon: Icon(Icons.home),
+            icon: Icon(Icons.face),
             label: "Famosos",
           ),
           BottomNavigationBarItem(
