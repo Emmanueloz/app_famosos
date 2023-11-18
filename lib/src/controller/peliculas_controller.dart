@@ -27,7 +27,7 @@ class PeliculaController extends GetxController {
   // función
   Rxn<Function()> submitFunc = Rxn<Function()>(null);
   // instancia del servicio
-  PeliculasService? service;
+  PeliculaService? service;
   // controladores de los inputs
   var ctrNombre = TextEditingController().obs;
   var ctrGenero = TextEditingController().obs;
@@ -38,7 +38,7 @@ class PeliculaController extends GetxController {
   @override
   void onInit() {
     super.onInit();
-    service = PeliculasService();
+    service = PeliculaService();
 
     debounce<String>(peliculaNombre, validarNombre,
         time: const Duration(microseconds: 500));

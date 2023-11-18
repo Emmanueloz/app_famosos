@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget {
       getPages: [
         GetPage(name: '/famosos', page: () => FamososPage()),
         GetPage(name: '/formFamoso', page: () => const FormFamososPage()),
-        GetPage(name: '/peliculas', page: () => const PeliculasPage()),
+        GetPage(name: '/peliculas', page: () => PeliculasPage()),
         GetPage(name: '/formPeliculas', page: () => const FormPeliculasPage()),
       ],
     );
@@ -30,7 +30,7 @@ class MyApp extends StatelessWidget {
 class HomeScreen extends StatelessWidget {
   final PageController _pageController = PageController();
 
-  HomeScreen({super.key});
+  HomeScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -39,7 +39,7 @@ class HomeScreen extends StatelessWidget {
         controller: _pageController,
         children: [
           FamososPage(),
-          const PeliculasPage(),
+          PeliculasPage(),
         ],
       ),
       bottomNavigationBar: BottomNav(pageController: _pageController),

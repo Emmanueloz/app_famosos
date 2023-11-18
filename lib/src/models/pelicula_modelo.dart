@@ -17,19 +17,19 @@ class PeliculaModelo {
 
   factory PeliculaModelo.fromJson(Map<String, dynamic> json) => PeliculaModelo(
         id: json["id"],
-        nombre: json["Nombre"],
-        genero: json["Genero"],
-        ao: json["Año"],
-        productor: json["Productor"],
-        director: json["Director"],
+        nombre: json["nombre"],
+        genero: json["genero"],
+        ao: json["año"],
+        productor: json["productor"],
+        director: json["director"],
       );
 
   Map<String, dynamic> toJson() => {
         "id": id,
-        "Nombre": nombre,
-        "Genero": genero,
-        "Año": ao,
-        "Productor": productor,
-        "Director": director,
+        "nombre": nombre,
+        "genero": genero,
+        "año": ao,
+        "productor": productor,
+        "director": director,
       };
 }
