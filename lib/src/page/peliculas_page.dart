@@ -14,7 +14,7 @@ class PeliculasPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Películas'),
+        title: const Text('Lista de Películas'),
       ),
       body: Obx(
         () => ListView.builder(

@@ -4,7 +4,7 @@ import 'package:app_famosos/src/models/pelicula_modelo.dart';
 import 'package:flutter/material.dart';
 
   class PeliculaService extends ChangeNotifier{
-  final String _baseUrl = 'hprod-10d9a-default-rtdb.firebaseio.com';
+  final String _baseUrl = 'bdra3-5b065-default-rtdb.firebaseio.com';
   final List<PeliculaModelo> pelicula = [];
  
 
