@@ -26,4 +26,7 @@ class FamososListController extends GetxController {
     listFamosos.add(famoso);
     return id;
   }
+  void delete(FamosoModelo value){
+    service.deleteFamoso(value);
+  }
 }
