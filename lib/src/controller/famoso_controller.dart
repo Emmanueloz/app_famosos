@@ -201,6 +201,7 @@ class FamosoController extends GetxController {
               genero: famosoGenero.value,
               pareja: famosoPareja.value);
           _id = await ctrList.agregar(famoso);
+          Get.back();
         } else {
           /// TODO: código para actualizar
         }

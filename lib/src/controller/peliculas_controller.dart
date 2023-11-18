@@ -160,6 +160,7 @@ class PeliculaController extends GetxController {
               productor: peliculaProductor.value,
               director: peliculaDirector.value);
           //_id = await ctrList.agregar(pelicula);
+          Get.back();
         } else {
           /// TODO: código para actualizar
         }

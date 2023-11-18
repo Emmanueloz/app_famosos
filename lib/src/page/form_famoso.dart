@@ -8,7 +8,9 @@ class FormFamososPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var fx = Get.put(FamosoController());
+    var fx = Get.put(FamosoController()); // #DCDCDC
+    Color colorFloatingActionButton = const Color.fromRGBO(220, 220, 220, 1);
+
     return Scaffold(
       appBar: AppBar(
         title: const Text('Agregar Famoso'),
@@ -74,15 +76,21 @@ class FormFamososPage extends StatelessWidget {
                 errorText: fx.errorPareja.value,
               );
             }),
-            Obx(() {
-              return ElevatedButton.icon(
-                  onPressed: fx.submitFunc.value,
-                  icon: const Icon(Icons.save),
-                  label: const Text("Aceptar"));
-            })
           ],
         ),
       ),
+      floatingActionButton: Obx(() {
+        if (fx.submitFunc.value != null) {
+          colorFloatingActionButton = Theme.of(context).primaryColor;
+        } else {
+          colorFloatingActionButton = const Color.fromRGBO(220, 220, 220, 1);
+        }
+        return FloatingActionButton(
+          onPressed: fx.submitFunc.value,
+          backgroundColor: colorFloatingActionButton,
+          child: const Icon(Icons.save),
+        );
+      }),
     );
   }
 
