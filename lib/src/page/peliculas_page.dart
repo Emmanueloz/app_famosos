@@ -1,4 +1,3 @@
-import 'package:app_famosos/src/controller/peliculas_controller.dart';
 import 'package:app_famosos/src/controller/peliculas_list.dart';
 import 'package:app_famosos/src/page/form_pelicula.dart';
 import 'package:app_famosos/src/widgets/item_pelicula.dart';
