@@ -3,8 +3,11 @@ import 'package:app_famosos/src/widgets/form_input.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+/// Clase para la pagina del formulario de agregar o editar Pelicula
 class FormPeliculasPage extends StatelessWidget {
   const FormPeliculasPage({super.key});
+
+  // TODO: El titulo de la pagina debe cambiar si es para Agregar o Editar Pelicula
 
   @override
   Widget build(BuildContext context) {
@@ -12,7 +15,7 @@ class FormPeliculasPage extends StatelessWidget {
     Color colorFloatingActionButton = const Color.fromRGBO(220, 220, 220, 1);
     return Scaffold(
         appBar: AppBar(
-          title: const Text('Agregar Películas'),
+          title: const Text('Agregar Películas'), // Titulo de la pagina
         ),
         body: SingleChildScrollView(
           padding: const EdgeInsets.all(10),

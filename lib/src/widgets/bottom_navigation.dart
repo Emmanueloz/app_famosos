@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+/// Clase para colocar los botones de navegación
+/// Se encarga de poder moverse entre las dos paginas y el cambio del icono activo
 class BottomNav extends StatelessWidget {
   final PageController pageController;
   final RxInt currentIndex = 0.obs;

@@ -3,17 +3,20 @@ import 'package:app_famosos/src/widgets/form_input.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+/// Clase para la pagina del formulario de agregar o editar Famosos
 class FormFamososPage extends StatelessWidget {
   const FormFamososPage({super.key});
 
+  // TODO: El titulo de la pagina debe cambiar si es para Agregar o Editar Famoso
+
   @override
   Widget build(BuildContext context) {
-    var fx = Get.put(FamosoController()); // #DCDCDC
+    var fx = Get.put(FamosoController());
     Color colorFloatingActionButton = const Color.fromRGBO(220, 220, 220, 1);
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Agregar Famoso'),
+        title: const Text('Agregar Famoso'), // Titulo de la pagina
       ),
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(10),
@@ -94,6 +97,7 @@ class FormFamososPage extends StatelessWidget {
     );
   }
 
+  /// Esta función es para agregar los input de tipo radio en el formulario
   Widget _buildGenderRadioButtons(FamosoController fx) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,

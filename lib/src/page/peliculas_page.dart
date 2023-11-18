@@ -24,6 +24,7 @@ class PeliculasPage extends StatelessWidget {
             },
           )),
       floatingActionButton: FloatingActionButton(
+        /// El Get.to es un método que sirve para cambiar de pagina, se usa en el botón flotante
         onPressed: () => Get.to(() => const FormPeliculasPage()),
         child: const Icon(Icons.add),
       ),
