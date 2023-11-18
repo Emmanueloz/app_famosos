@@ -6,15 +6,15 @@ import 'package:flutter/material.dart';
   class PeliculaService extends ChangeNotifier{
   final String _baseUrl = 'hprod-10d9a-default-rtdb.firebaseio.com';
   final List<PeliculaModelo> pelicula = [];
-  late PeliculaModelo selectedPelicula;
+ 
 
-  Future<String?> createPelicula(PeliculaModelo pelicula) async {
+  Future<String?> createPelicula(PeliculaModelo peli) async {
     final url = Uri.https(_baseUrl,'peliculas.json');
-    final resp = await http.post(url, body: json.encode(pelicula));
+    final resp = await http.post(url, body: json.encode(peli));
     final decodedData = json.decode(resp.body);
 
-    pelicula.id = decodedData['name'];
-    return pelicula.id;
+    peli.id = decodedData['name'];
+    return peli.id;
   } 
 
   //leer los  datos de firebase
@@ -24,9 +24,9 @@ import 'package:flutter/material.dart';
 
     final resp = await http.get(url); // Make the HTTP request
     
-    final Map<String, dynamic> productsMap = json.decode(resp.body);
+    final Map<String, dynamic> peliculasMap = json.decode(resp.body);
 
-    productsMap.forEach((key, value) {
+    peliculasMap.forEach((key, value) {
       final tempPeliculas = PeliculaModelo.fromJson(value);
       tempPeliculas.id = key;
       pelicula.add(tempPeliculas);

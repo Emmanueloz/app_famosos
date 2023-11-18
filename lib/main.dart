@@ -9,16 +9,16 @@ import 'package:get/get.dart';
 void main() => runApp(const MyApp());
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  const MyApp();
 
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
-      home: HomeScreen(),
+      home:  HomeScreen(),
       getPages: [
         GetPage(name: '/famosos', page: () => const FamososPage()),
         GetPage(name: '/formFamoso', page: () => const FormFamososPage()),
-        GetPage(name: '/peliculas', page: () => const PeliculasPage()),
+        GetPage(name: '/peliculas', page: () =>  PeliculasPage()),
         GetPage(name: '/formPeliculas', page: () => const FormPeliculasPage()),
       ],
     );
@@ -28,15 +28,15 @@ class MyApp extends StatelessWidget {
 class HomeScreen extends StatelessWidget {
   final PageController _pageController = PageController();
 
-  HomeScreen({super.key});
+   HomeScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: PageView(
         controller: _pageController,
-        children: const [
-          FamososPage(),
+        children: [
+           FamososPage(),
           PeliculasPage(),
         ],
       ),
