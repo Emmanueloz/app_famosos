@@ -4,6 +4,7 @@ import 'package:app_famosos/src/services/famosos_service.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+/// Esta clase es para el controlador del formulario de famoso, ya sea para agregar o editar
 class FamosoController extends GetxController {
   // campos
   String? _id = '';
@@ -203,7 +204,12 @@ class FamosoController extends GetxController {
           _id = await ctrList.agregar(famoso);
           Get.back();
         } else {
-          /// TODO: código para actualizar
+          /*
+          TODO: código para actualizar
+          Usa las misma variables ya existentes.
+          No uses `Get.offNamed('/famosos')` usa el `Get.back()`
+          Elimina estos comentario dentro del else cuando ya termine 
+          */
         }
         if (_id!.isNotEmpty) {
           ctrNombre.value.text = "";

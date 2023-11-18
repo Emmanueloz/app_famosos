@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+/// Esta clase permite generar un `TextField` con los parámetros necesarios para funcionar
 class FormInput extends StatelessWidget {
   const FormInput(
       {super.key,

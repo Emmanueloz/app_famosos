@@ -4,6 +4,7 @@ import 'package:app_famosos/src/services/peliculas_service.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+/// Esta clase es para el controlador del formulario de pelicula, ya sea para agregar o editar
 class PeliculaController extends GetxController {
   // campos
   String? _id = '';
@@ -165,7 +166,12 @@ class PeliculaController extends GetxController {
           _id = await ctrList.agregar(pelicula);
           Get.back();
         } else {
-          /// TODO: código para actualizar
+          /*
+          TODO: código para actualizar
+          Usa las misma variables ya existentes.
+          No uses `Get.offNamed('/peliculas')` usa el `Get.back()`
+          Elimina estos comentario dentro del else cuando ya termine 
+          */
         }
         if (_id!.isNotEmpty) {
           ctrNombre.value.text = "";
