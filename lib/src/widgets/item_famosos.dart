@@ -11,9 +11,21 @@ class ItemFamosos extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Color tipoColor = Colors.black;
+
+    if (famosos.genero == "M") {
+      tipoColor = Colors.blue;
+    } else if (famosos.genero == "F") {
+      tipoColor = Colors.pink;
+    }
+
     return Card(
       child: ListTile(
         title: Text(famosos.nombre),
+        subtitle: Text(
+          famosos.tipo,
+          style: TextStyle(color: tipoColor),
+        ),
       ),
     );
   }
