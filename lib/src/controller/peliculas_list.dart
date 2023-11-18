@@ -19,11 +19,15 @@ class PeliculasListController extends GetxController {
     list.then((value) => listPeliculas.value = value);
   }
 
+
   Future<String?> agregar(PeliculaModelo pelicula) async {
     String? id = await service.createPelicula(pelicula);
     pelicula.id = id;
     print(id);
     listPeliculas.add(pelicula);
     return id;
+  }
+  void delete(PeliculaModelo value){
+    service.deletePeliculas(value);
   }
 }

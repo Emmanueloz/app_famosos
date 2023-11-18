@@ -33,4 +33,9 @@ class PeliculaService extends ChangeNotifier {
     });
     return peliculas;
   }
+  Future<bool> deletePeliculas(PeliculaModelo value) async{
+    final url = Uri.https(_baseUrl, 'peliculas/${value.id}.json');
+    final resp = await http.delete(url);
+    return resp.statusCode == 200;
+  }
 }
