@@ -11,6 +11,7 @@ class FamososService extends ChangeNotifier {
   Future<List<FamosoModelo>> loadFamoso() async {
     final List<FamosoModelo> famosos = [];
     final url = Uri.https(_baseUrl, 'famosos.json');
+
     final resp = await http.get(url);
 
     final Map<String, dynamic> famososMap = json.decode(resp.body);
@@ -22,8 +23,7 @@ class FamososService extends ChangeNotifier {
     });
     return famosos;
   }
-
-  Future<bool> deleteFamoso(FamosoModelo value) async {
+  Future<bool> deleteFamoso(FamosoModelo value) async{
     final url = Uri.https(_baseUrl, 'famosos/${value.id}.json');
     final resp = await http.delete(url);
     return resp.statusCode == 200;

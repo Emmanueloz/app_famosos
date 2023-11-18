@@ -28,5 +28,9 @@ class FamososListController extends GetxController {
   }
   void delete(FamosoModelo value){
     service.deleteFamoso(value);
+            int index =
+      // ignore: invalid_use_of_protected_member
+      listFamosos.value.indexWhere((element) => element.id == value.id);
+    listFamosos.removeAt(index);
   }
 }
