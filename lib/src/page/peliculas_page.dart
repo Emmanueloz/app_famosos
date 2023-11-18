@@ -5,8 +5,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class PeliculasPage extends StatelessWidget {
-   PeliculasPage({super.key});
-   
+  PeliculasPage({super.key});
+
   final PeliculasListController ctr = Get.put(PeliculasListController());
 
   @override
@@ -15,16 +15,14 @@ class PeliculasPage extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Lista de Películas'),
       ),
-      body: Obx(
-        () => ListView.builder(
-          scrollDirection: Axis.vertical,
-          itemCount: ctr.listPelicula.length,
-          itemBuilder: (BuildContext context, int index) {
-            var peliculas = ctr.listPelicula[index];
-            return ItemPelicula( peliculas : peliculas);
-        },
-      )
-      ),
+      body: Obx(() => ListView.builder(
+            scrollDirection: Axis.vertical,
+            itemCount: ctr.listPeliculas.length,
+            itemBuilder: (BuildContext context, int index) {
+              var peliculas = ctr.listPeliculas[index];
+              return ItemPelicula(peliculas: peliculas);
+            },
+          )),
       floatingActionButton: FloatingActionButton(
         onPressed: () => Get.to(() => const FormPeliculasPage()),
         child: const Icon(Icons.add),

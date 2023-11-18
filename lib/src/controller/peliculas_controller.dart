@@ -1,3 +1,4 @@
+import 'package:app_famosos/src/controller/peliculas_list.dart';
 import 'package:app_famosos/src/models/pelicula_modelo.dart';
 import 'package:app_famosos/src/services/peliculas_service.dart';
 import 'package:flutter/material.dart';
@@ -28,6 +29,8 @@ class PeliculaController extends GetxController {
   Rxn<Function()> submitFunc = Rxn<Function()>(null);
   // instancia del servicio
   PeliculaService? service;
+  // instancia del controlador de la lista
+  PeliculasListController ctrList = Get.find();
   // controladores de los inputs
   var ctrNombre = TextEditingController().obs;
   var ctrGenero = TextEditingController().obs;
@@ -159,7 +162,7 @@ class PeliculaController extends GetxController {
               ao: int.parse(peliculaAo.value),
               productor: peliculaProductor.value,
               director: peliculaDirector.value);
-          //_id = await ctrList.agregar(pelicula);
+          _id = await ctrList.agregar(pelicula);
           Get.back();
         } else {
           /// TODO: código para actualizar

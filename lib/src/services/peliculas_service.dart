@@ -7,6 +7,7 @@ class PeliculaService extends ChangeNotifier {
   final String _baseUrl = 'bdra3-5b065-default-rtdb.firebaseio.com';
   final List<PeliculaModelo> peliculas = [];
 
+  // crear la pelicula
   Future<String?> createPelicula(PeliculaModelo pelicula) async {
     final url = Uri.https(_baseUrl, 'peliculas.json');
     final resp = await http.post(url, body: json.encode(pelicula));
