@@ -3,22 +3,22 @@ import 'package:http/http.dart' as http;
 import 'package:app_famosos/src/models/pelicula_modelo.dart';
 import 'package:flutter/material.dart';
 
-  class PeliculaService extends ChangeNotifier{
+class PeliculaService extends ChangeNotifier {
   final String _baseUrl = 'bdra3-5b065-default-rtdb.firebaseio.com';
-  final List<PeliculaModelo> pelicula = [];
+  final List<PeliculaModelo> peliculas = [];
 
-  Future<String?> createPelicula(PeliculaModelo peli) async {
+  Future<String?> createPelicula(PeliculaModelo pelicula) async {
     final url = Uri.https(_baseUrl, 'peliculas.json');
-    final resp = await http.post(url, body: json.encode(peli));
+    final resp = await http.post(url, body: json.encode(pelicula));
     final decodedData = json.decode(resp.body);
 
-    peli.id = decodedData['name'];
-    return peli.id;
+    pelicula.id = decodedData['name'];
+    return pelicula.id;
   }
 
   //leer los  datos de firebase
   Future<List<PeliculaModelo>> loadPeliculas() async {
-    final List<PeliculaModelo> pelicula = [];
+    final List<PeliculaModelo> peliculas = [];
     final url = Uri.https(_baseUrl, 'peliculas.json');
 
     final resp = await http.get(url); // Make the HTTP request
@@ -28,8 +28,8 @@ import 'package:flutter/material.dart';
     peliculasMap.forEach((key, value) {
       final tempPeliculas = PeliculaModelo.fromJson(value);
       tempPeliculas.id = key;
-      pelicula.add(tempPeliculas);
+      peliculas.add(tempPeliculas);
     });
-    return pelicula;
+    return peliculas;
   }
 }
