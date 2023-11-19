@@ -24,7 +24,8 @@ class FormPeliculasPage extends StatelessWidget {
     Color colorFloatingActionButton = const Color.fromRGBO(220, 220, 220, 1);
     return Scaffold(
         appBar: AppBar(
-          title: const Text('Agregar Películas'), // Titulo de la pagina
+          title: Text(
+              Get.arguments != null ? 'Editar Película' : 'Agregar Película'),
         ),
         body: SingleChildScrollView(
           padding: const EdgeInsets.all(10),

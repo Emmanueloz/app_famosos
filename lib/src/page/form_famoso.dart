@@ -7,8 +7,6 @@ import 'package:get/get.dart';
 class FormFamososPage extends StatelessWidget {
   const FormFamososPage({super.key});
 
-  // TODO: El titulo de la pagina debe cambiar si es para Agregar o Editar Famoso
-
   @override
   Widget build(BuildContext context) {
     var fx = Get.put(FamosoController());
@@ -27,7 +25,7 @@ class FormFamososPage extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Agregar Famoso'), // Titulo de la pagina
+        title: Text(Get.arguments != null ? 'Editar Famoso' : 'Agregar Famoso'),
       ),
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(10),
