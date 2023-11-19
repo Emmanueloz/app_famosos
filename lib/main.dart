@@ -15,6 +15,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       home: HomeScreen(),
+      title: 'App Famosos',
+      theme: ThemeData(primarySwatch: Colors.indigo),
       getPages: [
         GetPage(name: '/famosos', page: () => FamososPage()),
         GetPage(name: '/formFamoso', page: () => const FormFamososPage()),
