@@ -233,14 +233,8 @@ class FamosoController extends GetxController {
             pareja: famosoPareja.value,
           );
           ctrList.actualizar(famoso);
-          mensaje = "Se actualizado el producto";
+          mensaje = "Se actualizado un famoso";
           Get.back();
-          /*
-          TODO: código para actualizar
-          Usa las misma variables ya existentes.
-          No uses `Get.offNamed('/famosos')` usa el `Get.back()`
-          Elimina estos comentario dentro del else cuando ya termine 
-          */
         }
         if (_id!.isNotEmpty) {
           ctrNombre.value.text = "";

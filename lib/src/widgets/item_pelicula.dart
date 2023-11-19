@@ -35,6 +35,17 @@ class ItemPelicula extends StatelessWidget {
           peliculas.genero,
           //style: TextStyle(color: tipoColor),
         ),
+        onTap: () {
+          // Acción que se realiza al tocar el ListTile (navegar a la pantalla de edición)
+          Get.toNamed('formPeliculas', arguments: {
+            'id': peliculas.id,
+            'nombre': peliculas.nombre,
+            'genero': peliculas.genero,
+            'ao': peliculas.ao,
+            'productor': peliculas.productor,
+            'director': peliculas.director,
+          });
+        },
       ),
     ));
   }

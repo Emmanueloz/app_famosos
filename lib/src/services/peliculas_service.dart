@@ -8,39 +8,46 @@ class PeliculaService extends ChangeNotifier {
   final List<PeliculaModelo> peliculas = [];
 
   // crear la pelicula
-Future<String?> createPelicula(PeliculaModelo pelicula) async {
-  final url = Uri.https(_baseUrl, 'peliculas.json');
-  final resp = await http.post(url, body: json.encode(pelicula));
-  final decodedData = json.decode(resp.body);
+  Future<String?> createPelicula(PeliculaModelo pelicula) async {
+    final url = Uri.https(_baseUrl, 'peliculas.json');
+    final resp = await http.post(url, body: json.encode(pelicula));
+    final decodedData = json.decode(resp.body);
 
     pelicula.id = decodedData['name'];
     return pelicula.id;
   }
 
   //leer los  datos de firebase
-Future<List<PeliculaModelo>> loadPeliculas() async {
-  final List<PeliculaModelo> peliculas = [];
-  final url = Uri.https(_baseUrl, 'peliculas.json');
-  final resp = await http.get(url); // Make the HTTP request
+  Future<List<PeliculaModelo>> loadPeliculas() async {
+    final List<PeliculaModelo> peliculas = [];
+    final url = Uri.https(_baseUrl, 'peliculas.json');
+    final resp = await http.get(url); // Make the HTTP request
 
-  if (resp.statusCode == 200) {
-    final responseBody = jsonDecode(resp.body);
+    if (resp.statusCode == 200) {
+      final responseBody = jsonDecode(resp.body);
 
-    if (responseBody != null && responseBody is Map<String, dynamic>) {      
-      final Map<String, dynamic> peliculasMap = json.decode(resp.body);
+      if (responseBody != null && responseBody is Map<String, dynamic>) {
+        final Map<String, dynamic> peliculasMap = json.decode(resp.body);
 
-    peliculasMap.forEach((key, value) {
-      final tempPeliculas = PeliculaModelo.fromJson(value);
-      tempPeliculas.id = key;
-      peliculas.add(tempPeliculas);
-    });
+        peliculasMap.forEach((key, value) {
+          final tempPeliculas = PeliculaModelo.fromJson(value);
+          tempPeliculas.id = key;
+          peliculas.add(tempPeliculas);
+        });
+      }
     }
-  }  
-  return peliculas;
+    return peliculas;
   }
-  Future<bool> deletePeliculas(PeliculaModelo value) async{
+
+  Future<bool> deletePeliculas(PeliculaModelo value) async {
     final url = Uri.https(_baseUrl, 'peliculas/${value.id}.json');
     final resp = await http.delete(url);
     return resp.statusCode == 200;
+  }
+
+  Future<String?> updatePeliculas(PeliculaModelo pelicula) async {
+    final url = Uri.https(_baseUrl, 'peliculas/${pelicula.id}.json');
+    await http.put(url, body: json.encode(pelicula));
+    return pelicula.id;
   }
 }
