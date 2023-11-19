@@ -39,6 +39,27 @@ class PeliculaController extends GetxController {
   var ctrProductor = TextEditingController().obs;
   var ctrDirector = TextEditingController().obs;
 
+  void setAttributes(
+    String id,
+    String nombre,
+    String genero,
+    int ao,
+    String productor,
+    String director,
+  ) {
+    _id = id;
+    ctrNombre.value.text = nombre;
+    ctrGenero.value.text = genero;
+    ctrAo.value.text = ao.toString();
+    ctrProductor.value.text = productor;
+    ctrDirector.value.text = director;
+    peliculaNombre.value = nombre;
+    peliculaGenero.value = genero;
+    peliculaAo.value = ao.toString();
+    peliculaProductor.value = productor;
+    peliculaDirector.value = director;
+  }
+
   @override
   void onInit() {
     super.onInit();
@@ -166,6 +187,17 @@ class PeliculaController extends GetxController {
           _id = await ctrList.agregar(pelicula);
           Get.back();
         } else {
+          PeliculaModelo pelicula = PeliculaModelo(
+            id: _id,
+            nombre: peliculaNombre.value,
+            genero: peliculaGenero.value,
+            ao: int.parse(peliculaAo.value),
+            productor: peliculaProductor.value,
+            director: peliculaDirector.value,
+          );
+          ctrList.actualizar(pelicula);
+          mensaje = "Se actualizado una pelicula";
+          Get.back();
           /*
           TODO: código para actualizar
           Usa las misma variables ya existentes.

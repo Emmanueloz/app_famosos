@@ -12,10 +12,20 @@ class FormPeliculasPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var fx = Get.put(PeliculaController());
+    if (Get.arguments != null) {
+      fx.setAttributes(
+          Get.arguments['id'],
+          Get.arguments['nombre'],
+          Get.arguments['genero'],
+          Get.arguments['ao'],
+          Get.arguments['productor'],
+          Get.arguments['director']);
+    }
     Color colorFloatingActionButton = const Color.fromRGBO(220, 220, 220, 1);
     return Scaffold(
         appBar: AppBar(
-          title: const Text('Agregar Películas'), // Titulo de la pagina
+          title: Text(
+              Get.arguments != null ? 'Editar Película' : 'Agregar Película'),
         ),
         body: SingleChildScrollView(
           padding: const EdgeInsets.all(10),

@@ -1,3 +1,5 @@
+import 'package:app_famosos/src/controller/famosos_list.dart';
+import 'package:app_famosos/src/controller/peliculas_list.dart';
 import 'package:app_famosos/src/page/famosos_page.dart';
 import 'package:app_famosos/src/page/form_famoso.dart';
 import 'package:app_famosos/src/page/form_pelicula.dart';
@@ -13,6 +15,8 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Get.put(FamososListController());
+    Get.put(PeliculasListController());
     return GetMaterialApp(
       home: HomeScreen(),
       title: 'App Famosos',

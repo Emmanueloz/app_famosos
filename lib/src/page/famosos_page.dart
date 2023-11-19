@@ -1,3 +1,4 @@
+import 'package:app_famosos/src/controller/famoso_controller.dart';
 import 'package:app_famosos/src/controller/famosos_list.dart';
 import 'package:app_famosos/src/page/form_famoso.dart';
 import 'package:app_famosos/src/widgets/item_famosos.dart';

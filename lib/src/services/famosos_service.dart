@@ -8,6 +8,16 @@ class FamososService extends ChangeNotifier {
       "bdra3-5b065-default-rtdb.firebaseio.com"; // famosos.json
   final List<FamosoModelo> famosos = [];
 
+  // crear famosos
+  Future<String?> createFamoso(FamosoModelo famoso) async {
+    final url = Uri.https(_baseUrl, 'famosos.json');
+    final resp = await http.post(url, body: json.encode(famoso));
+    final decodeData = json.decode(resp.body);
+
+    famoso.id = decodeData["name"];
+    return famoso.id;
+  }
+
   Future<List<FamosoModelo>> loadFamoso() async {
     final List<FamosoModelo> famosos = [];
     final url = Uri.https(_baseUrl, 'famosos.json');
@@ -36,13 +46,9 @@ class FamososService extends ChangeNotifier {
     return resp.statusCode == 200;
   }
 
-  // crear famosos
-  Future<String?> createFamoso(FamosoModelo famoso) async {
-    final url = Uri.https(_baseUrl, 'famosos.json');
-    final resp = await http.post(url, body: json.encode(famoso));
-    final decodeData = json.decode(resp.body);
-
-    famoso.id = decodeData["name"];
+  Future<String?> updateFamoso(FamosoModelo famoso) async {
+    final url = Uri.https(_baseUrl, 'famosos/${famoso.id}.json');
+    await http.put(url, body: json.encode(famoso));
     return famoso.id;
   }
 }

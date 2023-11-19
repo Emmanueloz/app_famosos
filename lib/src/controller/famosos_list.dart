@@ -19,6 +19,14 @@ class FamososListController extends GetxController {
     list.then((value) => listFamosos.value = value);
   }
 
+  void actualizar(FamosoModelo famoso) async {
+    await service.updateFamoso(famoso);
+    int index =
+        // ignore: invalid_use_of_protected_member
+        listFamosos.value.indexWhere((element) => element.id == famoso.id);
+    listFamosos[index] = famoso;
+  }
+
   Future<String?> agregar(FamosoModelo famoso) async {
     String? id = await service.createFamoso(famoso);
     famoso.id = id;
@@ -26,11 +34,12 @@ class FamososListController extends GetxController {
     listFamosos.add(famoso);
     return id;
   }
-  void delete(FamosoModelo value){
+
+  void delete(FamosoModelo value) {
     service.deleteFamoso(value);
-            int index =
-      // ignore: invalid_use_of_protected_member
-      listFamosos.value.indexWhere((element) => element.id == value.id);
+    int index =
+        // ignore: invalid_use_of_protected_member
+        listFamosos.value.indexWhere((element) => element.id == value.id);
     listFamosos.removeAt(index);
   }
 }

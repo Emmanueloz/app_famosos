@@ -7,16 +7,25 @@ import 'package:get/get.dart';
 class FormFamososPage extends StatelessWidget {
   const FormFamososPage({super.key});
 
-  // TODO: El titulo de la pagina debe cambiar si es para Agregar o Editar Famoso
-
   @override
   Widget build(BuildContext context) {
     var fx = Get.put(FamosoController());
+    if (Get.arguments != null) {
+      fx.setAttributes(
+          Get.arguments['id'],
+          Get.arguments['nombre'],
+          Get.arguments['edad'],
+          Get.arguments['origen'],
+          Get.arguments['fechaNacimiento'],
+          Get.arguments['tipo'],
+          Get.arguments['genero'],
+          Get.arguments['pareja']);
+    }
     Color colorFloatingActionButton = const Color.fromRGBO(220, 220, 220, 1);
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Agregar Famoso'), // Titulo de la pagina
+        title: Text(Get.arguments != null ? 'Editar Famoso' : 'Agregar Famoso'),
       ),
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(10),
