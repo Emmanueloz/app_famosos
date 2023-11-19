@@ -12,6 +12,17 @@ class FormFamososPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var fx = Get.put(FamosoController());
+    if (Get.arguments != null) {
+      fx.setAttributes(
+          Get.arguments['id'],
+          Get.arguments['nombre'],
+          Get.arguments['edad'],
+          Get.arguments['origen'],
+          Get.arguments['fechaNacimiento'],
+          Get.arguments['tipo'],
+          Get.arguments['genero'],
+          Get.arguments['pareja']);
+    }
     Color colorFloatingActionButton = const Color.fromRGBO(220, 220, 220, 1);
 
     return Scaffold(

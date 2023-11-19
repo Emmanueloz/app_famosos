@@ -43,6 +43,19 @@ class ItemFamosos extends StatelessWidget {
           famosos.tipo,
           style: TextStyle(color: tipoColor),
         ),
+        onTap: () {
+          // Acción que se realiza al tocar el ListTile (navegar a la pantalla de edición)
+          Get.toNamed('formFamoso', arguments: {
+            'id': famosos.id,
+            'nombre': famosos.nombre,
+            'edad': famosos.edad,
+            'origen': famosos.origen,
+            'fechaNacimiento': famosos.fechaNacimiento,
+            'tipo': famosos.tipo,
+            'genero': famosos.genero,
+            'pareja': famosos.pareja,
+          });
+        },
       ),
     ));
   }

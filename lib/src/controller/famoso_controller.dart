@@ -45,6 +45,25 @@ class FamosoController extends GetxController {
   var ctrGenero = TextEditingController().obs;
   var ctrPareja = TextEditingController().obs;
 
+  void setAttributes(String id, String nombre, int edad, String origen,
+      String nacimiento, String tipo, String genero, String pareja) {
+    _id = id;
+    ctrNombre.value.text = nombre;
+    ctrEdad.value.text = edad.toString();
+    ctrOrigen.value.text = origen;
+    ctrNacimiento.value.text = nacimiento;
+    ctrTipo.value.text = tipo;
+    ctrGenero.value.text = genero;
+    ctrPareja.value.text = pareja;
+    famosoNombre.value = nombre;
+    famosoEdad.value = edad.toString();
+    famosoOrigen.value = origen;
+    faNacimiento.value = nacimiento;
+    famosoTipo.value = tipo;
+    famosoGenero.value = genero;
+    famosoPareja.value = pareja;
+  }
+
   @override
   void onInit() {
     super.onInit();
@@ -202,8 +221,20 @@ class FamosoController extends GetxController {
               genero: famosoGenero.value,
               pareja: famosoPareja.value);
           _id = await ctrList.agregar(famoso);
-          Get.back();
         } else {
+          FamosoModelo famoso = FamosoModelo(
+            id: _id,
+            nombre: famosoNombre.value,
+            edad: int.parse(famosoEdad.value),
+            origen: famosoPareja.value,
+            fechaNacimiento: faNacimiento.value,
+            tipo: famosoTipo.value,
+            genero: famosoGenero.value,
+            pareja: famosoPareja.value,
+          );
+          ctrList.actualizar(famoso);
+          mensaje = "Se actualizado el producto";
+          Get.back();
           /*
           TODO: código para actualizar
           Usa las misma variables ya existentes.
