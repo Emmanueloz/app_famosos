@@ -1,7 +1,9 @@
 import 'package:app_famosos/src/controller/famoso_controller.dart';
 import 'package:app_famosos/src/widgets/form_input.dart';
+import 'package:app_famosos/src/widgets/form_input_date.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:intl/intl.dart';
 
 /// Clase para la pagina del formulario de agregar o editar Famosos
 class FormFamososPage extends StatelessWidget {
@@ -58,7 +60,7 @@ class FormFamososPage extends StatelessWidget {
                 errorText: fx.errorOrigen.value,
               );
             }),
-            Obx(() {
+            /* Obx(() {
               return FormInput(
                 labelText: "Fecha de nacimiento",
                 keyboardType: TextInputType.datetime,
@@ -66,7 +68,11 @@ class FormFamososPage extends StatelessWidget {
                 controller: fx.ctrNacimiento.value,
                 errorText: fx.errorNacimiento.value,
               );
-            }),
+            }), */
+            FormInputDate(
+              controller: fx.ctrNacimiento.value,
+              onChanged: fx.fNacimientoChanged,
+            ),
             Obx(() {
               return FormInput(
                 labelText: "Tipo de famoso",

@@ -208,6 +208,7 @@ class FamosoController extends GetxController {
         validarFaNacimiento(faNacimiento.value);
         validarTipo(famosoTipo.value);
         validarPareja(famosoPareja.value);
+        print(faNacimiento.value);
         return true;
       } else {
         String? mensaje = 'Se agrego un nuevo famoso';
