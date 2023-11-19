@@ -198,12 +198,6 @@ class PeliculaController extends GetxController {
           ctrList.actualizar(pelicula);
           mensaje = "Se actualizado una pelicula";
           Get.back();
-          /*
-          TODO: código para actualizar
-          Usa las misma variables ya existentes.
-          No uses `Get.offNamed('/peliculas')` usa el `Get.back()`
-          Elimina estos comentario dentro del else cuando ya termine 
-          */
         }
         if (_id!.isNotEmpty) {
           ctrNombre.value.text = "";
