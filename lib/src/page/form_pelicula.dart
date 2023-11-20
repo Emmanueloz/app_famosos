@@ -1,13 +1,12 @@
 import 'package:app_famosos/src/controller/peliculas_controller.dart';
 import 'package:app_famosos/src/widgets/form_input.dart';
+import 'package:app_famosos/src/widgets/form_input_year.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 /// Clase para la pagina del formulario de agregar o editar Pelicula
 class FormPeliculasPage extends StatelessWidget {
   const FormPeliculasPage({super.key});
-
-  // TODO: El titulo de la pagina debe cambiar si es para Agregar o Editar Pelicula
 
   @override
   Widget build(BuildContext context) {
@@ -49,11 +48,11 @@ class FormPeliculasPage extends StatelessWidget {
               );
             }),
             Obx(() {
-              return FormInput(
-                labelText: 'Año',
-                keyboardType: TextInputType.number,
-                onChanged: fx.aoChanged,
+              return FormInputYear(
+                labelText: "Año de estreno",
                 controller: fx.ctrAo.value,
+                onChanged: fx.aoChanged,
+                selectedDate: int.tryParse(fx.peliculaAo.value),
                 errorText: fx.errorAo.value,
               );
             }),

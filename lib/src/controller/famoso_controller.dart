@@ -245,7 +245,7 @@ class FamosoController extends GetxController {
           ctrNacimiento.value.text = "";
           ctrTipo.value.text = "";
           ctrPareja.value.text = "";
-          Get.snackbar('Producto', mensaje);
+          Get.snackbar('Famoso', mensaje);
         }
         return true;
       }

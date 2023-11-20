@@ -205,7 +205,7 @@ class PeliculaController extends GetxController {
           ctrAo.value.text = "";
           ctrProductor.value.text = "";
           ctrDirector.value.text = "";
-          Get.snackbar('Producto', mensaje);
+          Get.snackbar('Pelicula', mensaje);
         }
         return true;
       }
