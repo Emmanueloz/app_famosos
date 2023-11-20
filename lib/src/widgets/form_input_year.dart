@@ -18,7 +18,6 @@ class FormInputYear extends StatelessWidget {
   final String? errorText;
 
   Future<void> showYearPicker(context) async {
-    print("Initial Year: '$selectedDate'");
     DateTime select = selectedDate != null
         ? DateTime(selectedDate!)
         : DateTime(DateTime.now().year);

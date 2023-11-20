@@ -59,21 +59,13 @@ class FormFamososPage extends StatelessWidget {
                 errorText: fx.errorOrigen.value,
               );
             }),
-            /* Obx(() {
-              return FormInput(
-                labelText: "Fecha de nacimiento",
-                keyboardType: TextInputType.datetime,
-                onChanged: fx.fNacimientoChanged,
-                controller: fx.ctrNacimiento.value,
-                errorText: fx.errorNacimiento.value,
-              );
-            }), */
             Obx(() {
               return FormInputDate(
                 labelText: "Fecha de nacimiento",
                 controller: fx.ctrNacimiento.value,
                 onChanged: fx.fNacimientoChanged,
                 initialDate: fx.faNacimiento.value,
+                errorText: fx.errorNacimiento.value,
               );
             }),
             Obx(() {

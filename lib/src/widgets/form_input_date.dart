@@ -8,12 +8,14 @@ class FormInputDate extends StatelessWidget {
     required this.controller,
     required this.onChanged,
     this.initialDate,
+    this.errorText,
   });
 
   final String labelText;
   final TextEditingController controller;
   final void Function(String) onChanged;
   final String? initialDate;
+  final String? errorText;
 
   DateTime stringToDateTime(String dateString) {
     // Define el formato de fecha esperado
@@ -46,7 +48,11 @@ class FormInputDate extends StatelessWidget {
       child: TextField(
         controller: controller,
         enabled: false,
-        decoration: InputDecoration(label: Text(labelText)),
+        decoration: InputDecoration(
+          label: Text(labelText),
+          errorText: errorText,
+          errorStyle: const TextStyle(color: Colors.red),
+        ),
         style: const TextStyle(color: Colors.black),
       ),
     );
