@@ -35,7 +35,6 @@ class FormInputDate extends StatelessWidget {
           initialDate: stringToDateTime(initialDate!),
           firstDate: DateTime(DateTime.now().year - 100),
           lastDate: DateTime(DateTime.now().year + 1),
-          keyboardType: TextInputType.datetime,
         );
 
         if (pickedDate != null) {

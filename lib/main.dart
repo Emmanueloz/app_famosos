@@ -7,6 +7,7 @@ import 'package:app_famosos/src/page/peliculas_page.dart';
 import 'package:app_famosos/src/widgets/bottom_navigation.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 
 void main() => runApp(const MyApp());
 
@@ -20,6 +21,14 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       home: HomeScreen(),
       title: 'App Famosos',
+      localizationsDelegates: const [
+        GlobalMaterialLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+        GlobalCupertinoLocalizations.delegate,
+      ],
+      supportedLocales: const [
+        Locale('es', 'MX'),
+      ],
       theme: ThemeData(primarySwatch: Colors.indigo),
       getPages: [
         GetPage(name: '/famosos', page: () => FamososPage()),
