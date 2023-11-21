@@ -1,7 +1,6 @@
 class FamosoModelo {
   String? id;
   String nombre;
-  int edad;
   String origen;
   String fechaNacimiento;
   String tipo;
@@ -11,7 +10,6 @@ class FamosoModelo {
   FamosoModelo({
     this.id,
     required this.nombre,
-    required this.edad,
     required this.origen,
     required this.fechaNacimiento,
     required this.tipo,
@@ -22,7 +20,6 @@ class FamosoModelo {
   factory FamosoModelo.fromJson(Map<String, dynamic> json) => FamosoModelo(
         id: json["id"],
         nombre: json["nombre"],
-        edad: json["edad"],
         origen: json["origen"],
         fechaNacimiento: json["fechaNacimiento"],
         tipo: json["tipo"],
@@ -33,7 +30,6 @@ class FamosoModelo {
   Map<String, dynamic> toJson() => {
         "id": id,
         "nombre": nombre,
-        "edad": edad,
         "origen": origen,
         "fechaNacimiento": fechaNacimiento,
         "tipo": tipo,

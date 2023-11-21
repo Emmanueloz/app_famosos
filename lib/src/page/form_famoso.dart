@@ -16,7 +16,6 @@ class FormFamososPage extends StatelessWidget {
       fx.setAttributes(
           Get.arguments['id'],
           Get.arguments['nombre'],
-          Get.arguments['edad'],
           Get.arguments['origen'],
           Get.arguments['fechaNacimiento'],
           Get.arguments['tipo'],
@@ -41,15 +40,6 @@ class FormFamososPage extends StatelessWidget {
                 onChanged: fx.nombreChanged,
                 controller: fx.ctrNombre.value,
                 errorText: fx.errorNombre.value,
-              );
-            }),
-            Obx(() {
-              return FormInput(
-                labelText: "Edad",
-                keyboardType: TextInputType.number,
-                onChanged: fx.edadChanged,
-                controller: fx.ctrEdad.value,
-                errorText: fx.errorEdad.value,
               );
             }),
             Obx(() {

@@ -9,7 +9,6 @@ class FamosoController extends GetxController {
   // campos
   String? _id = '';
   var famosoNombre = ''.obs;
-  var famosoEdad = "".obs;
   var famosoOrigen = "".obs;
   var faNacimiento = "".obs;
   var famosoTipo = "".obs;
@@ -17,7 +16,6 @@ class FamosoController extends GetxController {
   var famosoPareja = "".obs;
   // son validos?
   bool fNombre = false;
-  bool fEdad = false;
   bool fOrigen = false;
   bool fNacimiento = false;
   bool fTipo = false;
@@ -25,7 +23,6 @@ class FamosoController extends GetxController {
 
   // errores
   RxnString errorNombre = RxnString(null);
-  RxnString errorEdad = RxnString(null);
   RxnString errorOrigen = RxnString(null);
   RxnString errorNacimiento = RxnString(null);
   RxnString errorTipo = RxnString(null);
@@ -38,25 +35,22 @@ class FamosoController extends GetxController {
   FamososListController ctrList = Get.find();
   // controladores de los inputs
   var ctrNombre = TextEditingController().obs;
-  var ctrEdad = TextEditingController().obs;
   var ctrOrigen = TextEditingController().obs;
   var ctrNacimiento = TextEditingController().obs;
   var ctrTipo = TextEditingController().obs;
   var ctrGenero = TextEditingController().obs;
   var ctrPareja = TextEditingController().obs;
 
-  void setAttributes(String id, String nombre, int edad, String origen,
-      String nacimiento, String tipo, String genero, String pareja) {
+  void setAttributes(String id, String nombre, String origen, String nacimiento,
+      String tipo, String genero, String pareja) {
     _id = id;
     ctrNombre.value.text = nombre;
-    ctrEdad.value.text = edad.toString();
     ctrOrigen.value.text = origen;
     ctrNacimiento.value.text = nacimiento;
     ctrTipo.value.text = tipo;
     ctrGenero.value.text = genero;
     ctrPareja.value.text = pareja;
     famosoNombre.value = nombre;
-    famosoEdad.value = edad.toString();
     famosoOrigen.value = origen;
     faNacimiento.value = nacimiento;
     famosoTipo.value = tipo;
@@ -71,10 +65,6 @@ class FamosoController extends GetxController {
 
     debounce<String>(famosoNombre, validarNombre,
         time: const Duration(microseconds: 500));
-    debounce<String>(famosoEdad, validarEdad,
-        time: const Duration(microseconds: 500));
-    debounce<String>(famosoEdad, validarEdad,
-        time: const Duration(microseconds: 500));
     debounce<String>(famosoOrigen, validarOrigen,
         time: const Duration(microseconds: 500));
     debounce<String>(faNacimiento, validarFaNacimiento,
@@ -88,10 +78,6 @@ class FamosoController extends GetxController {
   // changed
   void nombreChanged(String val) {
     famosoNombre.value = val;
-  }
-
-  void edadChanged(String val) {
-    famosoEdad.value = val;
   }
 
   void origenChanged(String val) {
@@ -125,19 +111,6 @@ class FamosoController extends GetxController {
     } else {
       errorNombre.value = "El nombre debe ser mayor a 3 letras";
       fNombre = false;
-    }
-  }
-
-  void validarEdad(String val) {
-    errorEdad.value = null;
-    submitFunc.value = null;
-    if (int.tryParse(val) is int && int.parse(val) >= 0) {
-      submitFunc.value = submitFunction();
-      errorEdad.value = null;
-      fEdad = true;
-    } else {
-      errorEdad.value = "Debe colocar una edad valida";
-      fEdad = false;
     }
   }
 
@@ -195,27 +168,19 @@ class FamosoController extends GetxController {
 
   Future<bool> Function() submitFunction() {
     return () async {
-      if (!fNombre ||
-          !fEdad ||
-          !fOrigen ||
-          !fNacimiento ||
-          !fTipo ||
-          !fPareja) {
+      if (!fNombre || !fOrigen || !fNacimiento || !fTipo || !fPareja) {
         submitFunc.value = null;
         validarNombre(famosoNombre.value);
-        validarEdad(famosoEdad.value);
         validarOrigen(famosoOrigen.value);
         validarFaNacimiento(faNacimiento.value);
         validarTipo(famosoTipo.value);
         validarPareja(famosoPareja.value);
-        print(faNacimiento.value);
         return true;
       } else {
         String? mensaje = 'Se agrego un nuevo famoso';
         if (_id == '') {
           FamosoModelo famoso = FamosoModelo(
               nombre: famosoNombre.value,
-              edad: int.parse(famosoEdad.value),
               origen: famosoOrigen.value,
               fechaNacimiento: faNacimiento.value,
               tipo: famosoTipo.value,
@@ -227,7 +192,6 @@ class FamosoController extends GetxController {
           FamosoModelo famoso = FamosoModelo(
             id: _id,
             nombre: famosoNombre.value,
-            edad: int.parse(famosoEdad.value),
             origen: famosoPareja.value,
             fechaNacimiento: faNacimiento.value,
             tipo: famosoTipo.value,
@@ -240,7 +204,6 @@ class FamosoController extends GetxController {
         }
         if (_id!.isNotEmpty) {
           ctrNombre.value.text = "";
-          ctrEdad.value.text = "";
           ctrOrigen.value.text = "";
           ctrNacimiento.value.text = "";
           ctrTipo.value.text = "";
