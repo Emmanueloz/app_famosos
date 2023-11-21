@@ -11,6 +11,7 @@ class FormPeliculasPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var fx = Get.put(PeliculaController());
+    Icon iconFloatingActionButton = const Icon(Icons.save);
     if (Get.arguments != null) {
       fx.setAttributes(
           Get.arguments['id'],
@@ -19,6 +20,7 @@ class FormPeliculasPage extends StatelessWidget {
           Get.arguments['ao'],
           Get.arguments['productor'],
           Get.arguments['director']);
+      iconFloatingActionButton = const Icon(Icons.edit);
     }
     Color colorFloatingActionButton = const Color.fromRGBO(220, 220, 220, 1);
     return Scaffold(
@@ -85,7 +87,7 @@ class FormPeliculasPage extends StatelessWidget {
           return FloatingActionButton(
             onPressed: fx.submitFunc.value,
             backgroundColor: colorFloatingActionButton,
-            child: const Icon(Icons.save),
+            child: iconFloatingActionButton,
           );
         }));
   }
