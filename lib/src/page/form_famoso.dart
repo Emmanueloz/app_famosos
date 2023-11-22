@@ -1,5 +1,6 @@
 import 'package:app_famosos/src/controller/famoso_controller.dart';
 import 'package:app_famosos/src/widgets/form_input.dart';
+import 'package:app_famosos/src/widgets/form_input_date.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -10,16 +11,17 @@ class FormFamososPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var fx = Get.put(FamosoController());
+    Icon iconFloatingActionButton = const Icon(Icons.save);
     if (Get.arguments != null) {
       fx.setAttributes(
           Get.arguments['id'],
           Get.arguments['nombre'],
-          Get.arguments['edad'],
           Get.arguments['origen'],
           Get.arguments['fechaNacimiento'],
           Get.arguments['tipo'],
           Get.arguments['genero'],
           Get.arguments['pareja']);
+      iconFloatingActionButton = const Icon(Icons.edit);
     }
     Color colorFloatingActionButton = const Color.fromRGBO(220, 220, 220, 1);
 
@@ -42,15 +44,6 @@ class FormFamososPage extends StatelessWidget {
             }),
             Obx(() {
               return FormInput(
-                labelText: "Edad",
-                keyboardType: TextInputType.number,
-                onChanged: fx.edadChanged,
-                controller: fx.ctrEdad.value,
-                errorText: fx.errorEdad.value,
-              );
-            }),
-            Obx(() {
-              return FormInput(
                 labelText: "Lugar de origen",
                 keyboardType: TextInputType.text,
                 onChanged: fx.origenChanged,
@@ -59,11 +52,11 @@ class FormFamososPage extends StatelessWidget {
               );
             }),
             Obx(() {
-              return FormInput(
+              return FormInputDate(
                 labelText: "Fecha de nacimiento",
-                keyboardType: TextInputType.datetime,
-                onChanged: fx.fNacimientoChanged,
                 controller: fx.ctrNacimiento.value,
+                onChanged: fx.fNacimientoChanged,
+                initialDate: fx.faNacimiento.value,
                 errorText: fx.errorNacimiento.value,
               );
             }),
@@ -100,7 +93,7 @@ class FormFamososPage extends StatelessWidget {
         return FloatingActionButton(
           onPressed: fx.submitFunc.value,
           backgroundColor: colorFloatingActionButton,
-          child: const Icon(Icons.save),
+          child: iconFloatingActionButton,
         );
       }),
     );

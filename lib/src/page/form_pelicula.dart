@@ -1,5 +1,6 @@
 import 'package:app_famosos/src/controller/peliculas_controller.dart';
 import 'package:app_famosos/src/widgets/form_input.dart';
+import 'package:app_famosos/src/widgets/form_input_year.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -7,11 +8,10 @@ import 'package:get/get.dart';
 class FormPeliculasPage extends StatelessWidget {
   const FormPeliculasPage({super.key});
 
-  // TODO: El titulo de la pagina debe cambiar si es para Agregar o Editar Pelicula
-
   @override
   Widget build(BuildContext context) {
     var fx = Get.put(PeliculaController());
+    Icon iconFloatingActionButton = const Icon(Icons.save);
     if (Get.arguments != null) {
       fx.setAttributes(
           Get.arguments['id'],
@@ -20,6 +20,7 @@ class FormPeliculasPage extends StatelessWidget {
           Get.arguments['ao'],
           Get.arguments['productor'],
           Get.arguments['director']);
+      iconFloatingActionButton = const Icon(Icons.edit);
     }
     Color colorFloatingActionButton = const Color.fromRGBO(220, 220, 220, 1);
     return Scaffold(
@@ -49,11 +50,11 @@ class FormPeliculasPage extends StatelessWidget {
               );
             }),
             Obx(() {
-              return FormInput(
-                labelText: 'Año',
-                keyboardType: TextInputType.number,
-                onChanged: fx.aoChanged,
+              return FormInputYear(
+                labelText: "Año de estreno",
                 controller: fx.ctrAo.value,
+                onChanged: fx.aoChanged,
+                selectedDate: int.tryParse(fx.peliculaAo.value),
                 errorText: fx.errorAo.value,
               );
             }),
@@ -86,7 +87,7 @@ class FormPeliculasPage extends StatelessWidget {
           return FloatingActionButton(
             onPressed: fx.submitFunc.value,
             backgroundColor: colorFloatingActionButton,
-            child: const Icon(Icons.save),
+            child: iconFloatingActionButton,
           );
         }));
   }

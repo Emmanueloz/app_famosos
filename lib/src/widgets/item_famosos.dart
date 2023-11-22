@@ -48,7 +48,6 @@ class ItemFamosos extends StatelessWidget {
           Get.toNamed('formFamoso', arguments: {
             'id': famosos.id,
             'nombre': famosos.nombre,
-            'edad': famosos.edad,
             'origen': famosos.origen,
             'fechaNacimiento': famosos.fechaNacimiento,
             'tipo': famosos.tipo,

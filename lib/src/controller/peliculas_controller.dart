@@ -176,7 +176,7 @@ class PeliculaController extends GetxController {
         validarDirector(peliculaDirector.value);
         return true;
       } else {
-        String? mensaje = 'Se agrego un nuevo famoso';
+        String? mensaje = 'Se agrego una nuevo pelicula';
         if (_id == '') {
           PeliculaModelo pelicula = PeliculaModelo(
               nombre: peliculaNombre.value,
@@ -198,12 +198,6 @@ class PeliculaController extends GetxController {
           ctrList.actualizar(pelicula);
           mensaje = "Se actualizado una pelicula";
           Get.back();
-          /*
-          TODO: código para actualizar
-          Usa las misma variables ya existentes.
-          No uses `Get.offNamed('/peliculas')` usa el `Get.back()`
-          Elimina estos comentario dentro del else cuando ya termine 
-          */
         }
         if (_id!.isNotEmpty) {
           ctrNombre.value.text = "";
@@ -211,7 +205,7 @@ class PeliculaController extends GetxController {
           ctrAo.value.text = "";
           ctrProductor.value.text = "";
           ctrDirector.value.text = "";
-          Get.snackbar('Producto', mensaje);
+          Get.snackbar('Pelicula', mensaje);
         }
         return true;
       }

@@ -24,8 +24,10 @@ class FormInput extends StatelessWidget {
           keyboardType: keyboardType,
           onChanged: onChanged,
           controller: controller,
-          decoration:
-              InputDecoration(labelText: labelText, errorText: errorText),
+          decoration: InputDecoration(
+            labelText: labelText,
+            errorText: errorText,
+          ),
         ));
   }
 }
