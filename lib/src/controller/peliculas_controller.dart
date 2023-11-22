@@ -176,7 +176,7 @@ class PeliculaController extends GetxController {
         validarDirector(peliculaDirector.value);
         return true;
       } else {
-        String? mensaje = 'Se agrego una nuevo pelicula';
+        String? mensaje = 'Se agrego una nueva pelicula';
         if (_id == '') {
           PeliculaModelo pelicula = PeliculaModelo(
               nombre: peliculaNombre.value,
@@ -196,7 +196,7 @@ class PeliculaController extends GetxController {
             director: peliculaDirector.value,
           );
           ctrList.actualizar(pelicula);
-          mensaje = "Se actualizado una pelicula";
+          mensaje = "Se actualizado la pelicula";
           Get.back();
         }
         if (_id!.isNotEmpty) {
