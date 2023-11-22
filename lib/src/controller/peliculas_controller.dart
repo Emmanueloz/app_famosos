@@ -176,7 +176,7 @@ class PeliculaController extends GetxController {
         validarDirector(peliculaDirector.value);
         return true;
       } else {
-        String? mensaje = 'Se agrego un nuevo famoso';
+        String? mensaje = 'Se agrego una nuevo pelicula';
         if (_id == '') {
           PeliculaModelo pelicula = PeliculaModelo(
               nombre: peliculaNombre.value,

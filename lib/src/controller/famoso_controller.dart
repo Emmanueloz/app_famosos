@@ -199,7 +199,7 @@ class FamosoController extends GetxController {
             pareja: famosoPareja.value,
           );
           ctrList.actualizar(famoso);
-          mensaje = "Se actualizado un famoso";
+          mensaje = "Se a actualizado un famoso";
           Get.back();
         }
         if (_id!.isNotEmpty) {
