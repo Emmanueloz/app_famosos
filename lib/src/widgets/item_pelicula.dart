@@ -18,8 +18,7 @@ class ItemPelicula extends StatelessWidget {
         child: Dismissible(
       key: UniqueKey(),
       direction: DismissDirection.endToStart,
-      background: Container(),
-      secondaryBackground: Container(
+      background: Container(
         color: Colors.red,
         alignment: Alignment.centerRight,
         padding: const EdgeInsets.all(10),
@@ -35,6 +34,7 @@ class ItemPelicula extends StatelessWidget {
           peliculas.genero,
           //style: TextStyle(color: tipoColor),
         ),
+        tileColor: Colors.white,
         onTap: () {
           // Acción que se realiza al tocar el ListTile (navegar a la pantalla de edición)
           Get.toNamed('formPeliculas', arguments: {

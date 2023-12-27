@@ -30,7 +30,18 @@ class MyApp extends StatelessWidget {
       supportedLocales: const [
         Locale('es', 'MX'),
       ],
-      theme: ThemeData(primarySwatch: Colors.indigo),
+      theme: ThemeData(
+        primarySwatch: Colors.indigo,
+        appBarTheme: const AppBarTheme(
+          backgroundColor: Colors.indigo,
+          titleTextStyle: TextStyle(
+            color: Colors.white,
+            fontSize: 24,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+        useMaterial3: true,
+      ),
       getPages: [
         GetPage(name: '/famosos', page: () => FamososPage()),
         GetPage(name: '/formFamoso', page: () => const FormFamososPage()),
